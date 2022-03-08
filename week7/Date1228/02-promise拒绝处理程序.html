@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const p1=Promise.reject('foo');
+        // const p2=p1.then();
+        // const p3=p1.then(null,()=>undefined);
+        // const p4=p1.then(null,()=>{});
+        // const p5=p1.then(null,()=>Promise.resolve());
+        // const p6=p1.then(null,()=>Promise.resolve('bar'))
+        // const p7=p1.then(null,()=>'bar')
+        // const p8=p1.then(null,()=>new Promise(()=>{}));
+        // const p9=p1.then(null,()=>Promise.reject());
+        // const p10=p1.then(null,()=>{throw 'baz'});
+        // const p11=p1.then(null,()=>Error('qux'));
+        // setTimeout(console.log,0,p2);
+        // setTimeout(console.log,0,p3);
+        // setTimeout(console.log,0,p4);
+        // setTimeout(console.log,0,p5);
+        // setTimeout(console.log,0,p6);
+        // setTimeout(console.log,0,p7);
+        // setTimeout(console.log,0,p8);
+        // setTimeout(console.log,0,p9);
+        // setTimeout(console.log,0,p10);
+        // setTimeout(console.log,0,p11);
+
+        //catch
+
+        // const p=Promise.reject();
+        // const onRejected=function(){
+        //     setTimeout(console.log,0,'rejected');
+        // }
+        // p.then(null,onRejected);
+        // p.catch(onRejected);
+
+        const p1=new Promise(()=>{});
+        const p2=p1.catch();
+        setTimeout(console.log,0,p1);
+        setTimeout(console.log,0,p2);
+    </script>
+</body>
+</html>

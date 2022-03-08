@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border:1px solid #000;
+            font-size: 30px;
+        }
+
+        .change{
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top:0;
+            left: 0;
+        }
+
+        .change>div{
+            width: 300px;
+            height: 300px;
+            padding: 30px 15px;
+            background: #fff;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="add">
+        姓名: <input type="text" name="name"><br>
+        年龄: <input type="text" name="age"><br>
+        性别: 男<input type="radio" name="sex" value="男">  
+              女<input type="radio" name="sex" value="女">  
+              保密<input type="radio" name="sex" value="保密"><br>
+        城市: 
+            <select name="city">
+                <option value="0">北京</option>
+                <option value="1">上海</option>
+                <option value="2">广州</option>
+                <option value="3">重庆</option>
+                <option value="4">天津</option>
+            </select> <br>
+        <button>确定</button>
+        <button>取消</button>
+    </div>
+
+    <hr>
+
+
+    <table>
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>城市</td>
+                <td>删除</td>
+                <td>修改</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="change">
+        <div>
+            姓名: <input type="text" name="name"><br>
+            年龄: <input type="text" name="age"><br>
+            性别: 男<input type="radio" name="sex" value="男">  
+                  女<input type="radio" name="sex" value="女">  
+                  保密<input type="radio" name="sex" value="保密"><br>
+            城市: 
+                <select name="city">
+                    <option value="0">北京</option>
+                    <option value="1">上海</option>
+                    <option value="2">广州</option>
+                    <option value="3">重庆</option>
+                    <option value="4">天津</option>
+                </select> <br>
+            <button>确定</button>
+            <button>取消</button>
+        </div>
+    </div>
+
+
+    <script>
+        // 根据数组动态生成页面
+        const arr = [
+            {id:1,name:'张三',sex:'男',age:18,city:'北京'},
+            {id:2,name:'李四',sex:'女',age:19,city:'上海'},
+            {id:3,name:'王五',sex:'男',age:20,city:'广州'},
+            {id:4,name:'赵六',sex:'女',age:21,city:'重庆'},
+            {id:5,name:'刘七',sex:'保密',age:22,city:'天津'},
+        ];
+
+    </script>
+</body>
+</html>

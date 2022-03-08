@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.用户输入一个成绩，判断是优秀、及格、还是不及格  >=90(优秀)  90>分数>60(及格) 
+        // var score = prompt('请输入成绩');
+        // if(score >= 90){
+        //     document.write('优秀');
+        // }else if(score <= 90 && score > 60){
+        //     document.write('及格');
+        // }else{
+        //     document.write('不及格');
+        // }
+        // 2.用户登录：用户输入用户名和密码并用两个变量保存，判断是否登录成功并输出登录结果
+        // ( 正确账号：用户名: admin 密码：ad123)
+        var username = prompt('请输入用户名');
+        var password = prompt('请输入密码');
+        if(username == "admin" && password == "ad123"){
+            alert('登陆成功');
+        }else{
+            alert('登录失败，用户名或密码错误');
+        }
+        // 3.用户输入一个数字，判断该数是否是水仙花数,水仙花数：一个三位数。它的每位数的立方和等于自身
+        //  比如 153 = 1*1*1 +5*5*5 +3*3*3，除了153 ，还有 370 371 407 
+        // var num = prompt('请输入一个三位数');
+        // var ge = num % 10;
+        // var shi = (num - ge) % 100 / 10;
+        // var bai = parseInt(num/100);
+        // if(num = ge*ge*ge + shi*shi*shi + bai*bai*bai){
+        //     document.write(`您输入的${num}是水仙花数`);
+        // }else{
+        //     document.write(`您输入的${num}不是水仙花数`);
+        // }
+    </script>
+</body>
+</html>

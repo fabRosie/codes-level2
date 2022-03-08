@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跨年倒计时</title>
+</head>
+
+<body>
+    距离2022年1月1日00：00<br>
+    <input type="text" class="days">天
+    <input type="text" class="hours">时
+    <input type="text" class="minutes">分
+    <input type="text" class="seconds">秒
+    <script>
+
+        //获取input
+        let seconds = document.querySelector('.seconds');
+        let minutes = document.querySelector('.minutes');
+        let hours = document.querySelector('.hours');
+        let days = document.querySelector('.days');
+
+        const theDate = "2022 00:00:00"//距离哪一天的倒计时
+        const theMilliSeconds = new Date(theDate).getTime();//那一天的毫秒值
+
+        //初始化
+        const nowMilliSeconds = new Date().getTime();//现在的毫秒值
+            const subMilliSeconds = theMilliSeconds-nowMilliSeconds;
+            //换算成几天几时几分几秒
+            const subdays = parseInt(subMilliSeconds / 86400000);
+            const subhours = parseInt((subMilliSeconds - subdays * 86400000) / 3600000);
+            const subminutes = parseInt((subMilliSeconds - subdays * 86400000 - subhours * 3600000) / 60000);
+            const subseconds = parseInt((subMilliSeconds - subdays * 86400000 - subhours * 3600000 - subminutes  * 60000) / 1000);
+            days.value=subdays;
+            hours.value=subhours;
+            minutes.value=subminutes;
+            seconds.value=subseconds;
+
+        //倒计时定时器
+        const timer = setInterval(function () {
+            seconds.value--
+                //满60进1
+                if (seconds.value == 0) {
+                    minutes.value--
+                    seconds.value = 59;
+                    //满60进1
+                    if (minutes.value == 0) {
+                        hours.value--
+                        minutes.value = 59;
+                    }
+
+                }
+        }, 1000);
+    </script>
+</body>
+
+</html>

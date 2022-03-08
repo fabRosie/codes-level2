@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <button onclick="addImg()" class="but1">添加一张图片</button>
+    <button onclick="addImg2()">在开头添加一张图片</button>
+    <button onclick="delOne()">删除第一张图片</button>
+    <button onclick="delAll()">删除所有图片</button>
+    <br>
+    <script>
+        function addImg(){
+            var img=document.createElement('img');
+            var num=1+parseInt(Math.random()*8);
+            img.setAttribute("src",`img/id${num}.jpg`);
+            img.setAttribute("onclick","delSelf(this)");
+            document.body.appendChild(img);
+        }
+        function addImg2(){
+            var img=document.createElement('img');
+            var num=1+parseInt(Math.random()*8);
+            var brother=document.querySelector('.but1')
+            img.setAttribute("src",`img/id${num}.jpg`);
+            document.body.insertBefore(img,brother); 
+        }
+        function delOne(){
+            var imgs=document.querySelectorAll('img');
+            document.body.removeChild(imgs[0]);
+        }
+        function delAll(){
+            var imgs=document.querySelectorAll('img');
+            for(i=0;i<imgs.length;i++){
+                document.body.removeChild(imgs[i]);
+            }
+            
+        }
+        function delSelf(img){
+            document.body.removeChild(img);
+        }
+
+    </script>
+</body>
+</html>

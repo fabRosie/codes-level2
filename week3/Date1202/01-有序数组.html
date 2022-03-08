@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        1. 给你两个有序整数数组 nums1 和 nums2，请你将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组，
+        比如num1 =[1,2,3,6] .nums2=[2,3,4,5],合并后为[1,2,2,3,3,4,5,6]
+        要求用两种方式做，两种都可以用新数组。一种用sort函数，一种不能用sort函数
+        */
+        //方法一
+        // let num1 = [1, 2, 3, 6];
+        // let num2 = [2, 3, 4, 5];
+        // let num=num1.concat(num2);
+        // num.sort(function(a,b){return a-b});
+        // for(i=0;i<num.length;i++){
+        //     if(num[i+1]===num[i]){
+        //         num.splice(i+1,1);
+        //     }
+        // }
+        // console.log(num);
+        //方法二
+        let num1 = [1, 2, 3, 6];
+        let num2 = [2, 3, 4, 5];
+        let num = num1.concat(num2);
+        bubbleSort(num);
+        function bubbleSort(array) {
+            for (j = 0; j < array.length; j++) {
+                for (i = 0; i < array.length - 1; i++) {
+                    if (array[i] > array[i + 1]) {
+                        let tempt = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = tempt;
+                    }
+                }
+
+            }
+            return array;
+        }
+        for (let i = 0; i < num.length; i++) {
+            if (num[i + 1] === num[i]) {
+                num.splice(i + 1, 1);
+            }
+        }
+        console.log(num);
+    </script>
+</body>
+
+</html>

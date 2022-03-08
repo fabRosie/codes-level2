@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const href = 'https://www.bilibili.com/video/BV17z4y1D7Yj?p=253&x=123';
+        // var link = new URL(href)
+        // const link = location.href;
+        const searchs ={}
+       location.search
+            .substr(1)
+            .split('&')
+            .forEach(item => {
+                 const [key, value] = item.split('='); // [name, yyj]
+                 searchs[key] = value
+            })
+
+            console.log(searchs);
+        /*
+            掌握 a标签 和 form标签 传参语法
+            掌握 获取浏览器地址栏参数数据方法
+        */
+
+    </script>
+    <a href="http://www.baidu.com?">百度一下</a>
+    <form action=""></form>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 100px;
+            height: 50px;
+            border: 1px solid #000;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>城市</td>
+                <td>删除</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+
+        /*
+            根据数组生成table表格 执行删除功能
+
+            1,  数组的数据 和 tr>td>button 标签 是 一一对应的关系
+
+            2,  执行删除操作 本质上是 找到 数组单元中的对象 
+                删除对应的对象 
+                根据 新的数组 再次 渲染生成 新的页面内容
+
+            3,  获取所有的button标签
+                button标签的索引下标 就是 数组中数据单元也就是对象的索引下标
+                在 数组中 从 这个索引下标 开始 删除 1个 单元 
+        
+        */
+        // 定义数组
+        let arr = [
+            { id: 1, name: '张三', age: 18, sex: '男', addr: '北京' },
+            { id: 2, name: '李四', age: 19, sex: '女', addr: '上海' },
+            { id: 3, name: '王五', age: 20, sex: '男', addr: '广州' },
+            { id: 4, name: '赵六', age: 21, sex: '女', addr: '重庆' },
+            { id: 5, name: '刘七', age: 22, sex: '保密', addr: '天津' },
+        ];
+        ;
+        let tbody = document.querySelector('tbody');
+        //找到所点击删除键在数组里的下标
+        addRow()
+
+        
+        document.querySelectorAll('button').forEach(function (item, index) {//遍历删除键数组给每个元素设置点击事件
+            item.addEventListener('click', item.parentElement.parentElement.remove);
+        });
+
+        //函数
+        function addRow() {
+            arr.forEach(Element => {
+                tbody.innerHTML += `
+            <tr>
+                <td>${Element.id}</td>
+                <td>${Element.name}</td>
+                <td>${Element.sex}</td>
+                <td>${Element.age}</td>
+                <td>${Element.addr}</td>
+                <td><button>删除</button></td>
+            </tr> `
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let p=new Promise((resolve,reject)=>{
+        //     try{
+        //         throw Error('foo');
+        //     }catch(e){console.log(e)}
+
+        //     resolve('bar1')
+        // });
+
+        // setTimeout(console.log,0,p);
+        // console.log('bar');
+        // const p1=Promise.reject(Error('foo')).catch((e)=>{console.log(e)});
+        // console.log('bar');
+
+        let p = new Promise((resolve, reject) => {
+            console.log('begin asynchronous execution');
+            reject(Error('bar'));
+        })
+            .catch((e) => {console.log('caught Error', e)})
+            .then(() => {console.log('next')})
+        // setTimeout(console.log,0,p);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num=prompt('请输入秒数');
+        var day=parseInt(num/24/60/60);
+        var hour=parseInt((num-day*86400)/60/60);
+        var min=parseInt((num-day*86400-hour*3600)/60);
+        var sec=num%60;
+        document.write(`${num}秒相当于${day}天${hour}小时${min}分${sec}秒`);
+    </script>
+</body>
+</html>

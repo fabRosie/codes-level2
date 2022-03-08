@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid darkred;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p>什么</p>
+    </div>
+    <script>
+      //例子：新建div，并作为body标签的第一个子标签
+
+      //1
+      var newP = document.createElement("p");
+      //2.设置新标签的内容
+      newP.innerText = "罗茜";
+      var div=document.querySelector('#box');
+      var p=document.querySelector('#div p');
+    //   div.appendChild(newP);
+        div.insertBefore(newP,p);
+    //   div.removeChild(newP);
+    </script>
+</body>
+
+</html>

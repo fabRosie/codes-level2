@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*输入一个数字，倒序输出数字并求出位数之和(while) 。比如1234  
+        输出4321 位数之和为1+2+3+4=10.
+        提示：无论多少位数字，%10都可以获取个位数。  
+        那么获取个位数后除以10取整会怎么样呢 
+        1234%10  => 4并输出    1234/10取整 => 123  
+        123%10 =>3并输出       123/10取整 =>12   如此重复
+        12%10 =>2并输出         12/10取证 =>1
+        1%10 =>1    1/10取整 =0
+        */
+        var num = Number(prompt('请输入数字'));
+        var sum = 0;
+        var ge = 0;
+        while (num != 0) {
+            ge = num % 10;
+            document.write(ge);
+            sum += ge;
+            num = parseInt(num / 10);
+        }
+        document.write('和' + sum);
+    </script>
+</body>
+
+</html>

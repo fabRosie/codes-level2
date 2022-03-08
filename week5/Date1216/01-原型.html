@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(){};
+        Person.prototype={
+            constructor:Person,
+            name:"Nicholas",
+            age:29,
+            job:"Software Engineer",
+            sayName(){
+                console.log(this.name);
+            }
+        };
+        let friend =new Person();
+        
+        friend.sayName();
+
+        String.prototype.startsWith=function(text){
+            return this.indexOf(text)===0;
+        };
+        
+        let msg = "Hello World.";
+        console.log(msg.startsWith("H"));
+    </script>
+</body>
+</html>

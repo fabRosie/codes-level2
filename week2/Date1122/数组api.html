@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*1.完成数组的指定位置插入。比如[1,2,4,5]中下标为2处插入一个3，结果为[1,2,3,4,5]; 要插入的数由用户输入提供
+        2.完成数组的合并。比如[1,2,3,4]和[5,6,7,8]; 合并后形成一个新数组[1,2,3,4,5,6,7,8]
+        3.登录验证：定义两个数组分别保存用户名和密码，保持长度一致，用于存放一批用户名和密码。然后验证用户输入的用户名和密码是否正确。（用户名和密码在数组中的位置上是一一对应的)
+        4.第三题扩展：完成3次登录判断验证。用户有3次输入机会，用户名输入正确后剩余用户名次数作废的同时密码也有3次验证。3次用户名或密码都没输对，则程序终止。*/
+
+        // var arr=[1,2,3,4,5];
+        // // var str=arr.join("abc");
+        // // console.log(str);     
+        // // console.log(arr.reverse());
+        // var newArr = arr.slice(1,3);
+        // console.log(newArr);
+        // var index1=arr.lastIndexOf(3);
+        // var index2=arr.lastIndexOf(2);
+        // var index3=arr.lastIndexOf(6);
+        // console.log(index1,index2,index3);
+        //2
+        // var arr1 = [1, 2, 3, 4];
+        // var arr2 = [5, 6, 7, 8];
+        // for (i = 0; i < arr2.length; i++) {
+        //     arr1[arr1.length] = arr2[i];
+        // }
+        // console.log(arr1);
+        //3
+        let userName = ["luoxi", "yyj", "lx", "lucy", "rosie"];
+        let userPass = [123, 123, 321, 456, 543];
+        for (let count = 1; count <= 3; count++) {
+            let userInput = prompt('请输入用户名');
+            for (let i = 0; i < userName.length; i++) {
+                if (userInput === userName[i]) {
+                    for (let count2 = 1; count2 <= 3; count2++) {
+                        let passInput = prompt('请输入密码');
+                        if (passInput == userPass[i]) {
+                            alert('登录成功');
+                            break;
+                        } else {
+                            alert(`密码输入错误，您还有${3 - count2}次机会`);
+                        }
+                    }
+                    break;
+                    count = 3;
+                } else {
+
+                    if (i === userName.length - 1) {
+                        alert(`用户名输入错误，您还有${3 - count}次机会`);
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        2. 利用 while  switch break 实现登录注册功能
+           要求：1. 用户通过输入不同的数字有不同的功能-一级菜单。
+               1. 登录  2. 注册  3.退出
+               2. 没有默认用户，需要实现用户注册后可以使用该账号进行登录
+               3. 注册的用户需包含用户名和密码，保存到不同的变量中
+               4. 实现二级菜单，并实现对应的功能
+                  当用户登录后，才会显示二级菜单：1. 查询余额 2. 取钱 3. 存钱 4. 修改密码 5. 返回一级菜单
+        */
+        // 1. 用户输入
+        // 2. 用switch进行判断。对应case中书写功能代码 。
+        // 3. 用户输入以及switch代码用循环包围，实现多次的登录或注册
+        // 4.只要输入3才会退出程序
+        //保存注册的用户
+        var userInput = prompt('1. 登录  2. 注册  3.退出');
+        var nameSet = 0;
+        var passSet = 0;
+        var isRun = true;
+        while (isRun == true) {
+            
+            switch (userInput) {
+
+                case "1"://登录
+
+                    if (passSet != 0 && nameSet != 0) {
+                        for (i = 1; i <= 3; i++) {
+
+                            var userName = prompt('请输入用户名');
+                            var userPass = prompt('请输入密码');
+
+                            if (userName == nameSet && userPass == passSet) {
+                                alert('登录成功');
+                                break;
+                            } else {
+                                alert('登录失败');
+                            }   
+                        }
+                        isRun=false;
+                    } else {
+                        userInput = "2";
+                    }
+                    break;
+
+                case "2"://注册
+                    nameSet = (prompt("请注册用户名"));
+                    passSet = (prompt('请注册密码'));
+                    alert('注册成功');
+                    userInput = "1";
+                    break;
+
+                case "3": //退出
+                    isRun = false;
+                    break;
+
+                default:
+                    alert('输入不合法');
+                    isRun = false;
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

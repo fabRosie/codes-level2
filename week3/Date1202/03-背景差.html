@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: url("bg.png") no-repeat;
+            background-position: 50% 50%;            
+        }
+        body,html{
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+       // 思路：给body设置mousemove，用于获取鼠标的坐标，然后以此来改变body的backgroundPosition
+       document.body.addEventListener('mousemove',function(event){
+           this.style.backgroundPosition=`${event.clientX}px ${event.clientY}px`;
+       })
+       
+    //    document.body.addEventListener('mousemove',function(e){
+    //        var x = event.clientX;
+    //        var y = event.clientY;
+    //     //    //x y 减去宽高的一般
+    //     //    x = x- 1640/2;
+    //     //    y = y- 940/2;
+    //     //    //让x和y除以100，减少数字的变化范围
+    //     //    x /=200;
+    //     //    y /=200;
+    //     //    console.log(x,y);
+    //         this.style.backgroundPosition =`${x} ${y}`;
+    //    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        #box {
+            width: 1000px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+
+        #box>div {
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-size: 20px;
+            float: left;
+        }
+
+        .item1 {
+            background-color: blue;
+        }
+
+        .item2 {
+            background-color: green;
+        }
+
+        .item3 {
+            background-color: yellow;
+        }
+
+        .remove {
+            width: 500px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: black;
+            border: 1px solid black;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 拖放功能 -->
+    <div id="box">
+        <div class="item item1" draggable="true">blue</div>
+        <div class="item item2" draggable="true">green</div>
+        <div class="item item3" draggable="true">yellow</div>
+    </div>
+    <div class="remove">删除</div>
+    <script>
+        const items = document.querySelectorAll('.item');
+        const remove=document.querySelector('.remove');
+        items.forEach(element => {
+            element.addEventListener('dragover', function () {
+                event.preventDefault();
+            })
+            element.addEventListener('dragstart', function () {
+                event.dataTransfer.setData('class', event.target.getAttribute('class'));
+            })
+            element.addEventListener('drop', function () {
+                const itemClass = event.dataTransfer.getData('class');
+                const dragItem = document.querySelector("." + itemClass.substr(5));
+                const width = getComputedStyle(event.target).width;
+                const halfWidth = Number(width.substr(0, width.length - 2)) / 2;
+                if (event.offsetX < halfWidth) {//鼠标在左边，防置在前面
+                    event.target.parentElement.insertBefore(dragItem,event.target);
+                } else {//鼠标在右边，放置在后面
+                    if (event.target.nextElementSibling === null) {
+                        event.target.parentElement.appendChild(dragItem);
+                    } else {
+                        event.target.parentElement.insertBefore(dragItem, event.target.nextElementSibling);
+                    }
+                }
+            })
+        })
+        remove.addEventListener('dragover',function(){
+            event.preventDefault();
+        })
+        remove.addEventListener('drop',function(){
+            const itemClass=event.dataTransfer.getData('class');
+            const dragItem = document.querySelector("." + itemClass.substr(5));
+            dragItem.remove();
+        })
+    </script>
+</body>
+
+</html>

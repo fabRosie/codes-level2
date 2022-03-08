@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期约组合</title>
+</head>
+<body>
+    <script>
+        // const p1=Promise.all([Promise.resolve(),Promise.resolve()]);
+        // const p2=Promise.all([3,4]);
+        // const p3=Promise.all([]);
+        // const p4=Promise.all();//无效的语法
+        // setTimeout(console.log,0,p1);
+        // setTimeout(console.log,0,p2);
+        // setTimeout(console.log,0,p3);
+
+        let p=Promise.all([
+            Promise.resolve(),
+            new Promise((resolve,reject)=>setTimeout(resolve,1000))
+        ])
+        setTimeout(console.log,0,p);
+        p.then(()=>console.log('all resolved!'))
+        setTimeout(console.log,2000,p);
+
+        const p21=Promise.all([new Promise(()=>{})]);
+        // setTimeout(console.log,0,p1);
+
+        const p22=Promise.all([
+            Promise.resolve(),
+            Promise.reject(),
+            Promise.resolve()
+        ]);
+        setTimeout(console.log,0,p22);
+    </script>
+</body>
+</html>

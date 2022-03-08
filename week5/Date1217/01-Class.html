@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const Animal=class{};
+
+        // //class
+        // let Person=class PersonName{
+        //     identify(){
+        //         console.log(Person.name,PersonName.name)
+        //     }
+        // }
+
+        // let p= new Person();
+        // p.identify();
+        // console.log(Person.identify);//通过name属性取得类表达式的名称
+        // console.log(p)
+
+        class Animal{};
+
+        class Person{
+            constructor(){
+                console.log('person ctor');
+            }
+        }
+        
+        class Vegetable{
+            constructor(){
+                this.color="orange";
+            }
+        }
+        let a= new Animal();
+        let p=new Person();
+        let v=new Vegetable();
+        console.log(v.color);
+        console.log(v)
+    </script>
+</body>
+</html>

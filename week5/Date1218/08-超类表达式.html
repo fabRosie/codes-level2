@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Vehicle{};
+        let FooMixin=(Superclass)=>class extends Superclass{
+            foo(){
+                console.log('foo');
+            }
+        };
+        let BarMixin=(Superclass)=>class extends Superclass{
+            bar(){
+                console.log('bar');
+            }
+        };
+        let BazMixin=(Superclass)=>class extends Superclass{
+            baz(){
+                console.log('baz');
+            }
+        };
+        // class Bus extends FooMixin(BarMixin(BazMixin(Vehicle))){}
+        
+        function mix(BaseClass,...Mixins){
+            return Mixins.reduceRight((accumulator,current)=>current(accumulator),BaseClass);
+        }
+        class Bus extends mix(Vehicle,FooMixin,BarMixin,BazMixin){}
+
+        let b=new Bus();
+        b.foo();
+        b.bar();
+        b.baz();
+    </script>
+</body>
+</html>

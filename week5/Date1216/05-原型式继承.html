@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function object(o){
+            function F(){};
+            F.prototype=o;
+            return new F();
+        }
+        
+        let person ={
+            name:"Nicholas",
+            friends:["Shelby","Court","Van"]
+        };
+        let anotherPerson=object(person);
+        anotherPerson.name="Greg";
+        anotherPerson.friends.push('Rob');
+
+        console.log(person.friends)
+    </script>
+</body>
+</html>

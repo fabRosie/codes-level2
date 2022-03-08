@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件基础</title>
+    <style>
+        div {
+            background: red;
+            height: 200px;
+        }
+        input{
+            outline:none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            console.log('Page has been loaded.');
+            let div = document.querySelector('div');
+            // console.log(div);
+            div.onload = function () {
+                console.log('Div has been loaded');
+            }
+            div.onresize = function () {
+                console.log('div has been resized.')
+            }
+            // div.onmousemove=function(){
+            //     console.log('mouse moved in div.')
+            // }
+            // div.onmouseenter=function(){
+            //     console.log('mouse entered in div.')
+            // }
+            // div.onmouseleave=function(){
+            //     console.log('mouse leaved in div.')
+            // }
+            let input=document.querySelector('input');
+            input.onkeydown=function(){
+                console.log('keydown in div')
+            }
+            input.onkeyup=function(){
+                console.log('keyup in div')
+            }
+            input.onkeypress=function(){
+                console.log('keypress in div'+input.value)
+            }
+            input.onfocus=function(){
+                input.style.border="1px solid red";
+            }
+            input.onblur=function(){
+                input.style.border='1px solid gray';
+            }
+            let select=document.querySelector('select');
+            select.onchange=function(){
+                console.log(this.value);
+            }
+        }
+        window.onresize=function(){console.log('page has been resized.')}
+    </script>
+</head>
+<body>
+    <div>这是一个div</div>
+    <input type="text">
+    <label for="country">国家</label>
+    <select name="country" id="country">
+        <option value="China">中国</option>
+        <option value="America">美国</option>
+        <option value="Japn">日本</option>
+        <option value="Korea">韩国</option>
+    </select>
+</body>
+
+</html>

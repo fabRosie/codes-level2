@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "moment": "^2.29.1"
+  },
+  "name": "http",
+  "version": "1.0.0",
+  "main": "01-createserver.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //累加求和
+        // function sum(num1, num2) { return num1 + num2; }
+        //质数判断
+        function primeNumber(num) {
+            let isPrimeNumber = true;
+            for (let i = 2; i < num; i++) {
+                if (num % i == 0) {
+                    isPrimeNumber = false;
+                    let name="name";
+                }
+            }
+            // return isPrimeNumber;
+            return name;
+        }
+        console.log(primeNumber(12));
+        //最大公约数
+        // function maxCommon(num1, num2) {
+        //     let max = (num1 > num2) ? num1 : num2;
+        //     let min = (num1 < num2) ? num1 : num2;
+        //     if (max % min == 0) {
+        //         return(`${min}是最大公约数`);
+        //     } else {
+        //         for (i = min - 2; i = 1; i--) {
+        //             if (max % i == 0 && min % i == 0) {
+        //                 return(`${i}是最大公约数`);
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
+        //偶数的判断
+        // function isEven(num){
+        //     return num%2==0?true:false;
+        // }
+        //闰年的判断
+        // function leapYear(year){
+        //     return (((year%100!=0 && year%4==0) || year%400==0)?'是闰年':'不是闰年');   
+        // }
+        // console.log(leapYear(prompt('请输入年份')));
+        //最小公倍数
+        // function minCommon(num1, num2) {
+        //     let max = (num1 > num2) ? num1 : num2;
+        //     let min = (num1 < num2) ? num1 : num2;
+        //     if (max % min == 0) {
+        //         return (`${max}是最小公倍数`)
+        //     } else {
+        //         for (let i = max; i = max * min; i++) {
+        //             if (i % max == 0 && i % min == 0) {
+        //                 return (`${i}是最小公倍数`)
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
+        // console.log(minCommon(5,25));
+    </script>
+</body>
+
+</html>

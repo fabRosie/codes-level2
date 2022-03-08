@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        button{
+            font-size: 50px;
+            padding: 5px 10px;
+        }
+
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: fixed;
+            left: 50px;
+            top:100px;
+        }
+
+        p{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: fixed;
+            left: 50px;
+            top:250px;
+        }
+    </style>
+</head>
+<body>
+    <button>点击</button>
+    <div></div>
+
+    <p></p>
+    <script>
+        const oDiv=document.querySelector('div');
+        const oP=document.querySelector('p');
+        const oBtn=document.querySelector('button')
+
+        oBtn.addEventListener('click', function(){
+            move(oDiv,'width',500,function(){
+                oDiv.style.backgroundColor='red';
+            })
+            move(oP,'height',800);
+        })
+        /*封装的运动函数
+        参数1 要运动的标签对象
+        参数2 要运动的CSS样式
+        参数3 要运动的最终数值
+        参数4 运动结束执行的函数程序 默认值是空函数 */       
+        function move(element,type,endVal,callback=function(){}){
+            let startVal=100;
+
+            let timer=setInterval(function(){
+                startVal+=10;
+                element.style[type]=startVal+"px";
+                if(startVal===endVal){
+                    clearInterval(timer);
+
+                    callback()
+                }
+            },30)
+        }
+    </script>
+</body>
+</html>

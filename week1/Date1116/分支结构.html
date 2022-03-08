@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //需求：月同学今天上学，需要在9.20前到校，如果按时到校，就正常上课，否则就迟到罚抄笔记。
+
+        //如果  迟到
+            // document.write('罚抄笔记');
+        //否则
+            // document.write('正常上课');
+        // var result = 1;
+        // if(result == 0){
+        //     document.write('罚抄笔记');
+        // }else{
+        //     document.write('正常上课');
+        // }
+        //练习：
+        // 1.用户输入两个数，判断是否相等，并输出结果
+        // var num1 = Number(prompt('请输入数字1'));
+        // var num2 = Number(prompt('请输入数字2'));
+        // if(num1 == num2){
+        //     document.write("两个数相等");
+        // }else{
+        //     document.write("不相等");
+        // }
+        // 2 根据当前时间的小时数，输出是白天（<18）还是晚上（>18）
+        // var hour = new Date().getHours();
+        // var hour = prompt('请输入时间');
+        // alert(hour);
+        // if(hour < 18){
+        //     document.write("白天");
+        // }else{
+            // document.write("晚上");
+        // }
+        // 3. 根据当前小时数，输出商务（7-12）、下午（13-17）或晚上（18-6）;
+        var hour = new Date().getHours();
+        // var hour = 9;
+        if (7 <= hour && hour <+12){
+            document.write('上午');
+        }else if(hour >=13 && hour <=17){
+            document.write('下午');
+        }else{
+            document.write('晚上');
+        }
+    </script>
+</body>
+</html>

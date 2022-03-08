@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,ol,li{
+            list-style: none;
+        }
+
+        .box{
+            width: 800px;
+            height: 600px;
+            border: 3px solid #000;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box > ul{
+            width: 100%;
+            height: 100px;
+            display: flex;
+        }
+
+        .box > ul >li{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            background: pink;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            color: #fff;
+
+        }
+
+        .box > ul >li:last-child{
+            border-right: none;
+        }
+
+        .box > ul >li.active{
+            color: red;
+            text-decoration: underline;
+            background: orange;
+        }
+
+
+        .box > ol {
+            flex: 1;
+            position: relative;
+
+        }
+
+        .box > ol >li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            background: cyan;
+            display: none;
+            color: #fff;
+        }
+
+        .box > ol >li.active{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- 
+            <ul>    固定的内容
+
+                根据数组动态生成的
+                <li class="active">精选</li>
+                <li>美食</li>
+                <li>百货</li>
+                <li>个护</li>
+
+            </ul><ol>   固定内容
+
+                根据数组动态生成的
+                <li class="active">精选的内容</li>
+                <li>美食的内容</li>
+                <li>百货的内容</li>
+                <li>个护的内容</li>
+
+            </ol>   固定内容
+        -->
+    </div>
+
+    <script>
+        // 定义数组 模拟数据库数据
+        var arr = [
+            { id:1 , ulLi:'精选' , olLi:'精选内容' },
+            { id:2 , ulLi:'美食' , olLi:'美食内容' },
+            { id:3 , ulLi:'百货' , olLi:'百货内容' },
+            { id:4 , ulLi:'个护' , olLi:'个护内容' },
+        ];
+
+        // 获取标签对象
+        var oBox = document.querySelector('.box');
+
+        
+
+        // 需要生成 标签字符串 写入标签对象
+
+        // 定义 str 字符串 存储生成的内容
+        var str = '' ;
+
+        str += '<ul>' ;
+
+        arr.forEach(function(item , key){
+            str += key === 0 ?  `<li class="active">${item.ulLi}</li>` : `<li>${item.ulLi}</li>` ;
+        })
+
+        str += '</ul><ol>';
+
+        // 根究数组循环遍历生成的ol>li标签
+        // 循环遍历数组 向 ol中 动态拼接写入li标签
+        arr.forEach(function(item , key){
+            str += key === 0 ?  `<li class="active">${item.olLi}</li>` : `<li>${item.olLi}</li>` ;
+        })
+
+        // ol的结束标签
+        str += '</ol>';
+
+        // 将字符串写入 div标签中
+        oBox.innerHTML = str ;
+
+        // 写入之后 页面中才有标签对象 才能获取标签对象
+        var oUl = oBox.querySelector('ul');
+        var oOl = oBox.querySelector('ol');
+
+        var oUlLis = oUl.querySelectorAll('li');
+        var oOlLis = oOl.querySelectorAll('li');
+
+        console.log( oUl , oOl , oUlLis , oOlLis );
+        
+        // 给 ul>li 添加 事件 鼠标经过 / 鼠标点击
+
+        // 循环遍历 ul>li 伪数组 给每一个 ul>li 添加 事件
+        oUlLis.forEach( function(item , key){
+            // item 是 ul>li 的 标签对象
+            // key  是 ul>li 的 索引下标
+
+            // 给每一个 ul li 标签 添加 鼠标经过 / 鼠标点击 事件
+            item.addEventListener( 'mouseover' , function(){
+                // 1 清除所有的 ul.li 标签 class,active样式
+                // 循环 遍历 每一个 ul>li标签
+                oUlLis.forEach( function( i , k ){
+                    // i 是 ul>li 的 标签对象
+                    // k 是 ul>li 的 索引下标
+
+                    // 清除 ul>li class,active 样式
+                    i.classList.remove('active');
+                })
+            
+                // 2 给经过的 ul>li标签 也就是item 添加 class,active样式
+                item.classList.add('active');
+            
+                // 3 清除所有的 ol>li 标签 class,active样式
+                // 循环遍历 每一个 ol>li标签
+                oOlLis.forEach( function( i , k ){
+                    // i 是 ol>li 的 标签对象
+                    // k 是 ol>li 的 索引下标
+                    i.classList.remove('active');
+                })
+            
+                // 4 给 ul>li 对应的 ol>li 添加 class,active
+                // 也就是 索引下标 和 ul>li 相同的 ol>li 添加 class,active
+                // key 是 ul>li的索引下标 使用这个索引下标
+                // 从 ol>li 中 获取 索引下标 相同的 ol>li标签
+                oOlLis[key].classList.add('active');
+            
+            })
+
+        })
+
+
+
+
+    </script>
+
+    <script>
+        /*
+            选项卡1 html css
+
+
+            选项卡2 动态生成 
+                生成 ul标签 和 ol标签 
+                以及 ul标签中的内容 和 ol标签中的内容
+
+                根据 数据库获取的数据结果 动态生成
+                当前没有 数据库数据 自己定义一个数组模拟
+        
+                1,  生成 固定的 ul 起始标签
+                2,  循环遍历数组 生成 ul>li 拼接写入
+                    2-1 第一个li标签 添加 class,active
+                    2-2 li标签内容是 数组中 对象 ulLi 键名存储的键值
+                3,  生成 固定的 ul 结束标签 ol 起始标签
+                4,  循环遍历数组 生成 ol>li 拼接写入
+                    4-1 第一个li标签 添加 class,active
+                    4-2 li标签内容是 数组中 对象 olLi 键名存储的键值
+                5,  生成 固定的 ol 结束标签
+                6,  将 字符串 写入 div 标签中
+
+            选项卡3 js事件
+
+                1,  写入生成标签中 获取 标签对象
+
+                2,  循环遍历 ul>li
+
+                    2-1 给 ul>li 添加 鼠标移入 / 鼠标点击 事件
+                        2-1-1   循环遍历 ul>li 清除 class.active
+                        2-1-2   给 触发事件的 ul>li 添加 class.active 
+                        2-1-3   循环遍历 ol>li 清除 class.active
+                        2-1-4   给 触发事件的 ul>li 对应的 ol>li 添加 class.active 
+                                也就是 使用 触发事件的 ul>li 的索引下标
+                                从 ol>li 伪数组中 获取 对应的 ol>li 标签
+                        
+                
+
+        */
+
+
+    </script>
+</body>
+</html>

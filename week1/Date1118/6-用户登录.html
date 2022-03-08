@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*
+      1. 用户登录：用户有3次机会登录，中间某一次输入成功，提示成功后终止程序。
+         或3次都输错，也终止程序  break
+         */ 
+        
+        for(i=1;i<=3;i++){
+            var userInput=prompt('请输入用户名');
+            var password=prompt('请输入密码');
+            if(userInput=="luoxi" && password=="520"){
+                alert('登录成功');
+                break;
+            }else{
+                alert('登录失败');
+            }
+        }
+    </script>
+</body>
+</html>

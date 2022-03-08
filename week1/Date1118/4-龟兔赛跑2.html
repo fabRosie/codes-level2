@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        完成龟兔赛跑程序：比赛路程由用户输入，兔子速度为每次走5，乌龟每次走2，
+        但兔子每次有50%不跑，乌龟稳定速度，求跑完比赛路程兔子和乌龟用的次数以及谁赢了.
+        分析；比赛路程为100 。
+
+        比赛结束：1. 只要有一个跑完，比赛结束 
+                 2. 都跑完，比赛才结束
+
+        计量单位：每一次循环过程就算一个时间单位
+        */
+        var distance = 100;
+        var rabbit_distance = 0;
+        var turtle_distance = 0;
+        var rabbit_time = 0;
+        var turtle_time = 0;
+        var time = 0;
+        while (rabbit_distance < distance || turtle_distance < distance) {
+            if (rabbit_distance < distance) {
+                if (Math.random() > 0.5) {
+                    rabbit_distance += 5;
+                }
+                rabbit_time++;
+            }
+            if (turtle_distance < distance) {
+                turtle_distance += 3;
+                turtle_time++;
+            }
+            time++;
+        }
+        if (turtle_time < rabbit_time) {
+            document.write('乌龟赢了"<br>"');
+        } else if (rabbit_time < turtle_time) {
+            document.write('兔子赢了"<br>"');
+        } else {
+            document.write('平局"<br>"');
+        }
+        document.write(`比赛时间为${time}<br>兔子比赛时间:${rabbit_time}<br>乌龟比赛时间:${turtle_time}<br>`);
+    </script>
+</body>
+
+</html>

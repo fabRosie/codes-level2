@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=sc, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Object.getOwnPropertySymbols()
+        let k1=Symbol('k1');
+        let k2=Symbol('k2');
+        let o={
+            [k1]:'k1',
+            [k2]:'k2'
+        };
+        console.log(Object.getOwnPropertySymbols(o))
+    </script>
+</body>
+</html>

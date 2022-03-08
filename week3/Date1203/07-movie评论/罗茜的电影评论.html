@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗茜的电影评论</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css_whir.css" />
+    <style>
+        #star,
+        .star {
+            background-image: url(image/star_big.png) !important;
+            background-repeat: no-repeat;
+            width: 103px;
+            height: 20px;
+            display: inline-block;
+        }
+
+        #star ul {
+            width: 103px;
+            height: 20px;
+            display: flex;
+        }
+
+        #star li {
+            flex-grow: 1;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Comment">
+        <div class="them" id="them">澳门风云 全部评论</div>
+        <dl id="commentList">
+            <dt>
+                <span class="jiao"></span>
+                <div class="Portrait_big"><img src="image/Portrait.jpg" /></div>
+                <div class="Iwant">
+                    <div class="point">
+                        我要评分：
+                        <span id="star">
+                            <ul>
+                                <li id="star1" onclick="clickStar(1)"></li>
+                                <li id="star2" onclick="clickStar(2)"></li>
+                                <li id="star3" onclick="clickStar(3)"></li>
+                                <li id="star4" onclick="clickStar(4)"></li>
+                                <li id="star5" onclick="clickStar(5)"></li>
+                            </ul>
+                        </span>
+                        <b id="star-mark">0.0</b><span id="star-content"></span>
+                    </div>
+                    <textarea id="new-comment"></textarea>
+                </div>
+                <div class="btn_box">
+                    <a href="#" class="face"></a>
+                    <span>140字</span><a href="#" class="fb" onclick="commit();">我要发布</a>
+                </div>
+            </dt>
+
+            <!-- 动态生成 -->
+            <dd>
+                <div class="Portrait_small">
+                    <img src="image/Portrait_small.jpg" />
+                </div>
+                <div class="pepole">
+                    打酱油的<span class="star star4"></span><em><b>8.0</b> 2014/2/9 22:18:59</em>
+                </div>
+                <div class="nr">好看好笑……</div>
+            </dd>
+            <!-- 动态生成结束,追加到dl中 -->
+        </dl>
+    </div>
+    <script>
+        function clickStar(num) {
+            const star = document.querySelector('#star');
+            star.setAttribute("class", "star" + num);
+            const starMark = document.querySelector('#star-mark');
+            starMark.innerText = num * 2 + ".0";
+        }
+        function commit(){
+            const commentList=document.querySelector('#commentList');
+            const commentDD=document.createElement('dd');
+            // const imgHead=document.querySelector("dt Portrait_big").firstElementChild;
+            const starMark = document.querySelector('#star-mark');
+            const newComment=document.querySelector("#new-comment");
+            const date = new Date();
+            const year=date.getFullYear();
+            const month=date.getMonth()+1;
+            const day=date.getDate();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            console.log(newComment.value);
+            commentList.appendChild(commentDD);
+            commentDD.innerHTML+=`
+            <dd>
+                <div class="Portrait_small">
+                    <img src="image/Portrait_small.jpg" />
+                </div>
+                <div class="pepole">
+                    用户昵称<span class="star star${Number(starMark.innerText)/2}"></span><em><b>${starMark.innerText}</b> ${year}/${month}/${day} ${hours}:${minutes}:${seconds}</em>
+                </div>
+                <div class="nr">${newComment.value}</div>
+            </dd>
+            `
+            //恢复默认；
+            newComment.value="";//评论清空
+            const star = document.querySelector('#star');
+            star.setAttribute("class", "");//打星清空
+            starMark.innerText="0.0";//分数清空
+        }
+
+    </script>
+</body>
+
+</html>

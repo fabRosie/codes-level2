@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1 =[1,2,3,"c",7,4,9,"a",8,6,5,"z"];
+        //默认排序
+        arr1.sort();
+        console.log(arr1);
+        var arr2=[123,432,111,65,4,234,996,332];
+        arr2.sort();
+        console.log(arr2);
+        //自定义排序
+        function demo(num1,num2){
+            //表述数组中相邻的两个数据，根据return的结果来进行排序
+            return num2-num1;
+        }
+        //排序
+        arr2.sort(demo);
+        console.log(arr2);
+        
+    </script>
+</body>
+</html>

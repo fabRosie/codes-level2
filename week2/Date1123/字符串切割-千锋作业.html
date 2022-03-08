@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table td {
+            border: 1px solid black;
+            height: 20px;
+            width: 50px;
+            text-align: center;
+        }
+
+        table th {
+            border: 1px solid black;
+            height: 20px;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        //字符串切割
+        // let str1="123.456.789.jpg" ;
+        // let str2="123.456.789.html";
+        // let str3="123.456.789.js";
+        // function last(str){
+        //     let arr=str.split('.');
+        //     return arr[arr.length-1];
+        // }
+        // console.log(last(str1),last(str2),last(str3));
+        // let str4="abcdabcdabcdabcdabcdabcd";
+        // let newStr4=str4.replaceAll("d","*");
+        // console.log(newStr4);
+        // let arr4=newStr4.split("*");
+        // console.log(arr4);
+        // let new2Str4=arr4.join("");
+        // console.log(new2Str4);
+        let arr = [
+            ["姓名", "年龄", "婚否", "狗否"],
+            ["罗茜", "25岁", "未婚", "有狗"],
+            ["罗茜", "25岁", "未婚", "有狗"],
+            ["罗茜", "25岁", "未婚", "有狗"],
+            ["罗茜", "25岁", "未婚", "有狗"]
+        ]
+
+        let str = '<table>';
+        arr.forEach(function (item, index) {
+                    str+='<tr>';
+            switch (index) {
+                case 0: item.forEach(function (info, index2) { str += (`<th>${info}</th>`); }); break;
+                default: item.forEach(function (info, index2) { str += (`<td>${info}</td>`); }); break;
+            }
+                    str+='</tr>';
+        })
+        str+="</table>"
+        document.write(str);
+      
+        // let str=("<table>")
+        //     str+=(`<tr>`);
+        // for(n=0;n<arr[0].length;n++){
+        //     str+=(`<th>${arr[0][n]}</th>`);
+        // }
+        //     str+=(`</tr>`);
+        // for(i=1;i<arr.length;i++){
+        //     str+=(`<tr>`);
+        //     for(j=0;j<arr[i].length;j++){
+        //         str+=(`<td>${arr[i][j]}</td>`);
+        //     }
+        //     str+=(`</tr>`);
+        // }
+        // str+=("</table>");
+        // document.write(str);
+    </script>
+</body>
+
+</html>

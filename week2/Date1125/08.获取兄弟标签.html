@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <button onclick="sub(this)">-</button>
+        年龄:<input type="text" value="1" id="demo1"/>
+        <button onclick="add(this)">+</button>
+        <button onclick="getparent(this)">获取父标签</button>
+      </div>
+  
+      <div>
+          <button onclick="sub(this)">-</button>
+          年龄:<input type="text" value="1" id="demo2"/>
+          <button onclick="add(this)">+</button>
+      </div>
+      
+      
+    <script>
+        // function sub(){
+        //     var input=document.querySelector('input');
+        //     input.value--;
+        // }
+        // function add(){
+        //     var input=document.querySelector('input');
+        //     input.value++;
+        // }
+        //正确
+        function add(btn){
+            var input=btn.previousElementSibling;
+            input.value++;
+        }
+        function sub(btn){
+            var input=btn.nextElementSibling;
+            input.value--;
+        }
+        function getparent(btn){
+            console.log(btn.parentElement);
+        }
+    </script>
+</body>
+</html>

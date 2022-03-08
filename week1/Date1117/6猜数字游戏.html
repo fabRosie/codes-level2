@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var random = parseInt(Math.random() * 1000);
+        // alert(random);
+        var userinput = Number(prompt("请输入猜测的数字(1000以内)"));
+        for (i = 1; userinput != random; i++) {
+            if (userinput > random) {
+                alert('大了');
+            } else if (userinput < random) {
+                alert('小了');
+            }
+            var userinput = Number(prompt("请输入猜测的数字"));
+        }
+        alert(`相等，游戏结束,猜测次数为${i}次`);
+    </script>
+</body>
+
+</html>

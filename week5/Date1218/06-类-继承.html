@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //extends关键字
+        // class Vehicle{
+        //     identifyPrototype(id){
+        //         console.log(id,this);
+        //     }
+        //     static identifyClass(id){
+        //         console.log(id,this);
+        //     }
+        // };
+
+        // class Bus extends Vehicle{}
+
+        // let v=new Vehicle();
+        // let b=new Bus();
+
+        // b.identifyPrototype('bus');
+        // v.identifyPrototype('vehicle');
+
+        // Bus.identifyClass('bus');
+        // Vehicle.identifyClass('vehicle');
+
+        // class Bus extends Vehicle{};
+        // let Bus = class extends Vehicle{};
+
+
+        //super关键字
+
+        // class Bus extends Vehicle{
+        //     constructor(){
+        //         super();
+        //         console.log(this instanceof Bus);
+        //         console.log(this instanceof Vehicle);
+        //         console.log(this);
+        //         this.name=false;
+        //     }
+        // }
+        class Vehicle{
+            constructor(licensePlate){
+                this.licensePlate=licensePlate;
+            }
+        }
+        class Bus extends Vehicle{
+            constructor(licensePlate){
+                return {age:18}
+            }
+        }
+        console.log(new Bus())
+
+    </script>
+</body>
+</html>

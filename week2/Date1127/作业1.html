@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="aaabbcccddzdeefjffggg";
+        // var letter={a:0,b:0,c:0,d:0,z:0,e:0,f:0,j:0,g:0};
+        const letter = {}
+        // 
+        for(const el of str){
+        //     console.log(el);
+        // }
+            if(letter[el]) {
+                letter[el]++
+            } else {
+                letter[el] = 1
+            }
+           
+        }
+        // console.log(letter); 
+        //统计每一种字符出现的次数
+        //创建一个对象 属性是字符 属性值是次数
+        // for...of循环遍历对象
+        //
+        for(const value in letter){
+            console.log(value);
+        }
+        // for(const name of letter){
+        //     console.log(name);
+        // }
+    </script>
+</body>
+</html>

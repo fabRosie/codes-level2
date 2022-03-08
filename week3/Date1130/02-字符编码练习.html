@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      // 练习；用户输入一串字符，判断有几个数字、小写字母、大写字母或其他符号
+        let str=prompt('请输入一串字符');
+        let number=0;//数字的个数
+        let upperCase=0;//大写字母的个数
+        let lowerCase=0;//小写字母的个数
+        let otherCode=0;//其他符号的个数
+        for(i=0;i<str.length;i++){
+            let code=str.charCodeAt(i);
+            
+            if(code >=48 &&code <=57){
+                number++;
+            }else if(code >=97 &&code <=122){
+                lowerCase++;
+            }else if(code >=65 && code <=90){
+                upperCase++;
+            }else{
+                otherCode++;
+            }
+        }
+        console.log(`${str}这串字符数字有${number}个，大写字母有${upperCase}个，小写字母有${lowerCase}个，其他符号有${otherCode}个。`)
+    </script>
+</body>
+</html>

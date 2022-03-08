@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .banner {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            margin: 0;
+        }
+
+        .banner ul {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .banner ul li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: opacity .5s linear;
+        }
+
+        .banner ul li.active {
+            opacity: 1;
+        }
+
+        .banner ol {
+            width: 200px;
+            height: 30px;
+            position: absolute;
+            left: 30px;
+            bottom: 30px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 15px;
+        }
+
+        .banner ol li {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .banner ol li.active {
+            background-color: orange;
+        }
+
+        .banner div {
+            width: 40px;
+            height: 60px;
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, .5);
+            transform: translateY(-50%);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .banner div.left {
+            left: 0;
+        }
+
+        .banner div.right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <!-- 图片区域 -->
+        <ul class="imgbox">
+            <li class="active"><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/1.jpg" alt=""></li>
+        </ul>
+        <!-- 焦点区域 -->
+        <ol>
+            <li data-i="0" data-name="point" class="active"></li>
+            <li data-i="1" data-name="point"></li>
+            <li data-i="2" data-name="point"></li>
+            <li data-i="3" data-name="point"></li>
+        </ol>
+        <div class="left">&lt;</div>
+        <div class="right">&gt;</div>
+    </div>
+    <script>
+        const imgs = document.querySelectorAll('ul>li');
+        const dots = document.querySelectorAll('ol>li');
+        let index=0;//图片的序号
+        function changeImg(type) {//type:点击
+            imgs[index].className="";
+            dots[index].className="";
+            if (type === true) {//点击右边
+                index++;
+            }else if(type===false){//点击左边
+                index--;
+            }else{
+                index=type;
+            }
+            if (index>=imgs.length){
+                index=0;
+            }
+            if(index<0){
+                index=imgs.length-1;
+            }
+            imgs[index].className="active";
+            dots[index].className="active";
+        }
+        const banner=document.querySelector('.banner');
+        banner.addEventListener('click',function(e){
+            if(e.target.className==="left"){
+                changeImg(false);
+            }
+            if(e.target.className==="right"){
+                changeImg(true);
+            }
+            if(e.target.dataset.name==="point"){
+                console.log('点击焦点')
+                changeImg(e.target.dataset.i-0);
+            }
+        })
+        setInterval(() => {
+            changeImg(true);
+        }, 2000);
+    </script>
+</body>
+
+</html>

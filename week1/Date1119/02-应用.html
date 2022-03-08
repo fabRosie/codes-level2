@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // var names = ["周星星", "达叔", "李云龙", "栋东", "渣渣辉", "墟锟"];
+        // document.write(names[parseInt(Math.random()*names.length)]);
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D"];
+        // document.write(arr[parseInt(Math.random()*arr.length)]);
+        //第一种
+        // for(i=1;i<=5;i++){
+        // document.write(arr[parseInt(Math.random()*arr.length)]);
+        // }
+        //第二种
+        // var str="";
+        // for(i=1;i<=5;i++){
+        // str+=arr[parseInt(Math.random()*arr.length)];
+        // }
+        // document.write(str);
+
+        //练习：随机宽高(1000内)、颜色圆
+        var color=['green','red','yellowgreen','greenyellow','pink'];
+        var bgColor=color[parseInt(Math.random()*color.length)];
+        var width=parseInt((Math.random()*1000));
+        document.write(`<div style="background:${bgColor};width:${width}px;height:${width}px;"></div>`) ;  
+
+    </script>
+</body>
+
+</html>

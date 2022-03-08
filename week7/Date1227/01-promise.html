@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p1=new Promise((resolve,reject)=>setTimeout(resolve,3000));
+        const p2=new Promise((resolve,reject)=>setTimeout(reject,3000));
+        p1.then(
+            function onResolved(){
+                setTimeout(console.log,0,'p1','resolved');
+            },
+            function onRejected(){
+                setTimeout(console.log,0,'p1',"rejected");
+            }
+        );
+        p2.then(
+            function onResolved(){
+                setTimeout(console.log,0,'p2','resolved');
+            },
+            function onRejected(){
+                setTimeout(console.log,0,'p2',"rejected");
+            }
+        );
+    </script>
+</body>
+</html>

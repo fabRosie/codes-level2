@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. 用户分别输入3次，表示年份、月份、日期。计算该日期是当年的第几天
+        //思路：利用switch来加上已过月份的天数+ 当月已过天数
+        var year=Number(prompt('请输入年份'));
+        var month=Number(prompt('请输入月份'));
+        var day=Number(prompt('请输入日期'));
+        var days=day;
+        switch(month-1){
+            case 11: days+=30;
+            case 10: days+=31;
+            case 9: days+=30;
+            case 8: days+=31;
+            case 7: days+=31;
+            case 6: days+=30;
+            case 5: days+=31;
+            case 4: days+=30;
+            case 3: days+=31;
+            case 2: days+=28;
+            case 1: days+=31;
+        }
+        if(year%100!=0 && year%4==0 || year%400==0){
+            if(month>2){
+                days++;
+            }else if(month==2 && days)
+        }
+        document.write(`${year}年${month}月${day}日是第${days}天`);
+    </script>
+</body>
+</html>

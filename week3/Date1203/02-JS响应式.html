@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100%;
+            height: 50px;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        /*
+            视窗窗口 宽 >= 1200 div 宽度为 80%  背景颜色为 蓝色
+            视窗窗口 宽 < 1200 并且 >= 960  div 宽度为 60%  背景颜色为 绿色
+            视窗窗口 宽 < 960 并且 >= 720  div 宽度为 40%   背景颜色为 黄色
+            视窗窗口 宽 < 720  div 宽度为 20%   背景颜色为 橙色
+        */
+        let div = document.querySelector('div');
+        // div.style.backgroundColor="blue";  
+        window.addEventListener('resize', function () {
+            console.log(window.innerWidth)
+            if (window.innerWidth >= 1200) {
+                div.style.backgroundColor = "blue";
+                div.style.width = "80%";
+            }else if(window.innerWidth <1200 && window.innerWidth >=960){
+                div.style.backgroundColor = "green";
+                div.style.width = "60%";
+            }else if(window.innerWidth >= 720 && window.innerWidth <960){
+                div.style.backgroundColor = "yellow";
+                div.style.width = "40%";
+            }else if(window.innerWidth <720){
+                div.style.backgroundColor = "orange";
+                div.style.width = "20%";
+            }
+        })
+    </script>
+</body>
+
+</html>

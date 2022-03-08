@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let p1=Promise.resolve();
+        // let p2=Promise.reject();
+        // let onFinally=function(){
+        //     setTimeout(console.log,0,'Finally!');
+        // }
+        // p1.finally(onFinally);
+        // p2.finally(onFinally);
+
+        // 返回一个新的实例
+        const p1=Promise.resolve();
+        const p2=p1.finally();
+        const p3=p1.finally(()=>undefined);
+        const p4=p1.finally(()=>{});
+        const p5=p1.finally(()=>Promise.resolve());
+        const p6=p1.finally(()=>Promise.resolve('bar'))
+        const p7=p1.finally(()=>'bar')
+        const p8=p1.finally(()=>Error('qux'));
+        setTimeout(console.log,0,p1);
+        setTimeout(console.log,0,p2);
+        setTimeout(console.log,0,p3);
+        setTimeout(console.log,0,p4);
+        setTimeout(console.log,0,p5);
+        setTimeout(console.log,0,p6);
+        setTimeout(console.log,0,p7);
+        setTimeout(console.log,0,p8);
+        
+        const p9=p1.finally(()=>new Promise(()=>{}));
+        const p10=p1.finally(()=>Promise.reject());
+        setTimeout(console.log,0,p9);
+        setTimeout(console.log,0,p10);
+        const p11=p1.finally(()=>{throw 'baz'});
+        setTimeout(console.log,0,p11);
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="demo" value="123">
+    <button class="btn">登录</button>
+    <a href="#">百度一下</a>
+    <div id="box">
+        <p>这是box里的第一个p标签</p>
+        <p>这是box里的第二个p标签</p>
+    </div>
+    <script>
+        var input=document.querySelector("#demo");
+        //获取内容
+        var text=input.value;
+        text="猪头猪头猪头";
+        console.log(text);
+        //获取div
+        var p=document.querySelector("#box p");
+        console.log(p.innerText);//针对于成对出现的标签
+        var div = document.querySelector("#box");
+        console.log(div.innerHTML);//获取标签内的HTML代码
+        console.log(div.innerText);//获取标签内的文本内容
+        //修改
+        div.innerHTML="<a href='http://www.baidu.com'>百度一下</a>";
+        console.log(div.innerText);
+    
+    </script>
+</body>
+</html>

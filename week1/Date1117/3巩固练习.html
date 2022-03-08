@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //1
+        // var x;//鸡的数量
+        // var y;
+        
+        // for(x=1;x<=15;x++){
+        //     y=15-x;
+        //     if(x*2+y*4 == 40){
+        //         document.write(`兔的数量为${y}，鸡的数量为${x}`);
+        //     }
+        // }
+
+       //2
+    //    var x=Number(prompt('请输入底数X'));
+    //    var y=Number(prompt('请输入指数y'));
+    //    var num=1;
+    //    for(i=1;i<=y;i++){
+    //         num*=x;
+    //    }
+    //    document.write(`${x}的${y}次方为${num}`);
+
+        //3
+    // var n=Number(prompt('请输入n的值'));
+    // var sum=0;
+    // for(var i=1;i<=n;i++){
+    //     sum+=i*i;//n=n+i*i
+    // }
+    // document.write(sum);
+        //4
+        var date=new Date().getDay();
+        switch(date){
+            case date=0: document.write('今天是星期日');break;
+            case date=1: document.write('今天是星期一');break;
+            case date=2: document.write('今天是星期二');break;
+            case date=3: document.write('今天是星期三');break;
+            case date=4: document.write('今天是星期四');break;
+            case date=5: document.write('今天是星期五');break;
+            case date=6: document.write('今天是星期六');break;
+            default:document.write('输入值不合法');break;
+        }
+        //5
+        
+    </script>
+</body>
+</html>

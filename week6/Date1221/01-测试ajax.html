@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var xhr=new XMLHttpRequest();
+        //三个参数
+        //请求方式 按照接口文档来书写
+        //请求地址 也是按照接口文档来书写
+        //是否异步 默认异步请求，选填false 表示同步请求
+        xhr.open('GET','http://localhost:8888/test/first',true)
+
+        //请求完成后触发的事件
+        xhr.onload=function(){
+            console.log(xhr.responseText)
+        }
+
+        xhr.send();
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+</head>
+
+<body>
+    <input type="text" class="hours">:
+    <input type="text" class="minutes">:
+    <input type="text" class="seconds">
+    <button class="start">开始</button>
+    <button class="stop">停止</button>
+    <button class="reset">重置</button>
+    <script>
+        let timer;
+        //获取input的值
+        let seconds = document.querySelector('.seconds');
+        let minutes = document.querySelector('.minutes');
+        let hours = document.querySelector('.hours');
+        //获取按钮
+        const start = document.querySelector('.start');
+        const stop = document.querySelector('.stop');
+        const reset = document.querySelector('.reset');
+        //初始化
+        seconds.value = 0;
+        minutes.value = 0;
+        hours.value = 0;
+        //按下开始        
+        start.onclick = function start() {
+            timer = setInterval(function () {
+                seconds.value++
+                //满60进1
+                if (seconds.value == 60) {
+                    minutes.value++;
+                    seconds.value = 0;
+                    //满60进1
+                    if (minutes.value == 60) {
+                        hours.value++;
+                        minutes.value = 0;
+                    }
+
+                }
+            }, 1000);
+
+        }
+        //按下停止
+        stop.onclick = function (){
+            clearInterval(timer);
+        }
+        //按下重置
+        reset.onclick=function (){
+            clearInterval(timer);
+            seconds.value=0;
+            minutes.value=0;
+            hours.value=0;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var sex = prompt('请输入性别(男/女)');
+        var height = prompt('请输入身高(cm)');
+        var weight = prompt('请输入体重(kg)');
+        //判断性别
+        if (sex == "女") {
+            var ratio = 1 / (weight - (height - 70) * 0.6);
+        } else if (sex == "男") {
+            var ratio = 1 / (weight - (height - 80) * 0.7);
+        }else{
+            alert('输入不正确');
+        }
+        //判断体重
+        if (ratio <= 0.1 || ratio >= -0.1) {
+            document.write('标准体重');
+        } else if (ratio >= -0.2) {
+            document.write('过轻');
+        } else if (ratio <= 0.2) {
+            document.write('过重');
+        } else if (ratio > 0.2) {
+            document.write('超重');
+        } else if (ratio < -0.2) {
+            document.write('营养不良');
+        }else{
+            alert('输入不正确');
+        }
+    </script>
+</body>
+</html>

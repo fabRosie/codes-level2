@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            font-weight: bolder;
+        }
+
+        .set {
+            background: red;
+            color: white;
+            padding: 5px 20px;
+            border: 0px;
+        }
+
+        .box {
+            height: 100px;
+            width: 100px;
+            border: 5px solid black;
+            margin-top: 20px;
+        }
+
+        .form {
+            border: 10px gray solid;
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            bottom: 100px;
+            right: 100px;
+            padding: 20px;
+            visibility: hidden;
+        }
+
+        .form button {
+            height: 30px;
+            width: 50px;
+            border: 1px solid rgba(192, 192, 192, 0.904);
+            margin-top: 10px;
+            margin-right: 5px;
+            background:rgb(223, 222, 222);
+            color:gray;
+        }
+        .form button:hover{
+            background:orange;
+            color:black;
+        }
+        .form .red {
+            background: pink;
+            color: white;
+        }
+
+        .form .red:hover {
+            background: red;
+            color: black;
+        }
+
+        .form .yellow {
+            background: gold;
+            color: white;
+        }
+
+        .form .yellow:hover {
+            background: yellow;
+            color: black;
+        }
+
+        .form .blue {
+            background: skyblue;
+            color: white;
+        }
+
+        .form .blue:hover {
+            background: blue;
+            color: black;
+        }
+        .form .renew{
+            background:rgba(73, 73, 175, 0.719);
+            color:white;
+            margin-top:50px;
+            margin-left:90px;
+        }
+        .form .ok{
+            background:rgba(73, 73, 175, 0.719);
+            color:white;
+        }
+    </style>
+</head>
+
+<body>
+    <span>请为下面的DIV设置样式：</span>
+    <button class="set">点击设置</button>
+    <div class="box"></div>
+    <div class="form">
+        请选择背景色：
+        <button class="red color">红</button>
+        <button class="yellow color">黄</button>
+        <button class="blue color">蓝</button>
+        <br>
+        请选择宽(px)：
+        <button class="w200">200</button>
+        <button class="w300">300</button>
+        <button class="w400">400</button>
+        <br>
+        请选择高(px)：
+        <button class="h200">200</button>
+        <button class="h300">300</button>
+        <button class="h400">400</button>
+        <br>
+        <button class="renew">恢复</button>
+        <button class="ok">确定</button>
+    </div>
+    <script>
+        const box = document.querySelector('.box');
+        const red=document.querySelector('.red');
+        const yellow=document.querySelector('.yellow');
+        const blue=document.querySelector('.blue');
+        const h200=document.querySelector('.h200');
+        const h300=document.querySelector('.h300');
+        const h400=document.querySelector('.h400');
+        const w200=document.querySelector('.w200');
+        const w300=document.querySelector('.w300');
+        const w400=document.querySelector('.w400');
+        const renew=document.querySelector('.renew');
+        const form=document.querySelector('.form');
+        const close=document.querySelector('.ok');
+        const open=document.querySelector('.set');
+        red.onclick=function(){box.style.backgroundColor="red";}
+        yellow.onclick=function(){box.style.backgroundColor="yellow";}
+        blue.onclick=function(){box.style.backgroundColor="blue";}
+        h200.onclick=function(){box.style.height="200px";}
+        h300.onclick=function(){box.style.height="300px";}
+        h400.onclick=function(){box.style.height="400px";}
+        w200.onclick=function(){box.style.width="200px";}
+        w300.onclick=function(){box.style.width="300px";}
+        w400.onclick=function(){box.style.width="400px";}
+        renew.onclick=function(){
+            box.style.width="100px";
+            box.style.height="100px";
+            box.style.backgroundColor="white";  
+        }
+        close.onclick=function(){form.style.visibility="hidden";}
+        open.onclick=function(){form.style.visibility="visible";}
+    </script>
+</body>
+
+</html>

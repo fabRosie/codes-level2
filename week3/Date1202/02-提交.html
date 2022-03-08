@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="success.html" id="loginForm">
+        用户名: <input type="text" id="user">
+        密码：<input type="text" id="pass">
+        <button id="login-btn">登录</button>
+        <button id="reset-btn">重置</button>
+    </form>
+    <script>
+        /*
+        点击提交获取所有的数据数值
+        爱好使用个数组存储数据
+        没有form标签给button添加点击事件
+        有form标签给form标签添加submit提交事件阻止默认事件执行
+        获取数据数值
+        */
+        var form=document.querySelector('form');
+
+        document.querySelector('#login-btn').addEventListener('click',function(event){
+            event.preventDefault();
+            let userInput=document.querySelector('#user').value;
+            let passInput=document.querySelector('#pass').value;
+            if(userInput.length<0 || passInput.length<0){
+                alert('输入不能为空');
+            }else{
+                form.submit();
+            }
+        })
+        document.querySelector('#reset-btn').addEventListener('click',function(event){
+            event.preventDefault();
+            form.reset();
+        })
+    </script>
+</body>
+</html>

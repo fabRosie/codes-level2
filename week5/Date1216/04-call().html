@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function sum(num1,num2){
+        //     return num1+num2;
+        // }
+        // function callSum1(num1,num2){
+        //     return sum.apply(this,arguments);
+        // }
+        function SuperType(){
+            this.colors=["red","blue","green"];
+        }
+        //新方法
+        // function SubType(){
+        //     SuperType.call(this);
+        // }
+        //老方法
+        function SubType(){};
+        // SubType.prototype=new SuperType();
+        //test
+        let a=new SubType();
+        console.log(a.colors)
+        let instance1=new SubType();
+        instance1.colors.push('black');
+        console.log(instance1.colors);
+        console.log(a.colors)
+    </script>
+</body>
+</html>

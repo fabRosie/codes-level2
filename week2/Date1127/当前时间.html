@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let date=new Date();
+        const weekMap={
+                1:'星期一',
+                2:'星期二',
+                3:'星期三',
+                4:'星期四',
+                5:'星期五',
+                6:'星期六',
+                7:'星期日',
+            }
+        const monthMap={
+            0:'Jan',
+            1:'Feb',
+            2:'Mar',
+            3:'Apr',
+            4:'May',
+            5:'Jun',
+            6:'Jul',
+            7:'Aug',
+            8:'Sep',
+            9:'Oct',
+            10:'Nov',
+            11:'Dec',
+        }
+        const time={
+            year:date.getFullYear(),
+            month:monthMap[date.getMonth()],
+            day:date.getDate(),
+            week:weekMap[date.getDay()],
+            hours:date.getHours(),
+            minutes:date.getMinutes(),
+            seconds:date.getSeconds(),
+        };
+        console.log(time);
+
+    </script>
+</body>
+</html>

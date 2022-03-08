@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // xhr.open('get','example.php',false);
+        // xhr.send(null);
+
+        // if((xhr.status>=200&&xhr.status<300)||xhr.status===304){
+        //     alert(xhr.responseText);
+        // }else{
+        //     alert("Request was unsuccessful:"+xhr.status);
+        // }
+
+
+        let myHeader = getResponseHeader('MyHeader');
+        let allHeaders = getAllResponseHeaders();
+
+        function submitData() {
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if ((xhr.status >= 200 && xhr.status < 300 || xhr.status === 304)) {
+                        alert(xhr.responseText)
+                    } else {
+                        alert('Request was unsuccessful' + xhr.status)
+                    }
+                }
+            };
+            xhr.open("post", "postexample.php", true);
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            let form=document.getElementById()
+            xhr.send(null);
+        }
+    </script>
+</body>
+
+</html>

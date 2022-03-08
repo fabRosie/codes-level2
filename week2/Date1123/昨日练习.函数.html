@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2. 利用函数知识完成以下题目：
+        // 2-1:定义一个函数，传入一个数字，判断该数是否是水仙花数
+        // function isFlowerNumber(num) {
+        //     if(typeof num != "number" || isNaN(num)){
+        //         return;
+        //     }else if(num<100 || num>999){
+        //         console.log('请输入三位数字');
+        //     }
+        //     var ge = num % 10;
+        //     var shi = (num - ge)%100/10;
+        //     var bai = parseInt(num/100);
+        //     if(num == ge*ge*ge + shi*shi*shi + bai*bai*bai){
+        //         return true;
+        //     }else{
+        //         return false;
+        //     }
+        // }
+        // console.log(isFlowerNumber(153));
+        // 2-2:定义一个函数，实现随机一个川A非新能源车牌号，并返回该车牌号
+        // function RandomCarNumber(){
+            // let arr=[1,2,3,4,5,6,7,8,9,"A","B","C","D","E"];
+        //     let newArr="";
+        //     for(i=1;i<=5;i++){
+        //         let random=arr[parseInt(Math.random()*arr.length)];
+        //         newArr+=random;
+        //     }
+        //     return "川A"+newArr;
+        // }
+        // console.log(RandomCarNumber());
+        // 2-3:定义一个函数，传入一个数组，判断该数组是否全由数字构成
+        // let arr=[1,2,3,4,5];
+        // function isNumber(arr){
+        //     for(i=0;i<arr.length;i++){
+        //         if(typeof arr[i]!="number" && isNaN(arr[i])){
+        //             return false;
+        //             break;
+        //         }else if(i==arr.length-1){
+        //             return true;
+        //         }
+        //     }
+        // }
+        // console.log(isNumber(arr));
+        // 2-4:定义一个函数，传入一个由数字构成的数组，判断该数组是否是回文数组，比如[1,2,3,2,1]是回文数组，正着读和反着读是一样的。
+        var arr=[2,2,3,2,1];
+        var arr1=arr;
+        console.log(arr1);
+        var arr2=arr.reverse();
+        console.log(arr1,arr2);
+        // function isPalindrome(arr){
+        //     var arr1=arr;
+        //     var copy=arr.reverse();
+        //     console.log(arr1,copy);
+        //     if(arr.reverse()==copyarr){
+        //         return true;
+        //     }else{
+        //         return false;
+        //     }
+        // }
+        // console.log(isPalindrome(arr));
+        // 2-5:定义一个函数，传入一个数据，实现获取该数据在数组中出现的次数并返回
+        // function times(num,arr){
+        //     let count=0;
+        //     for(i=0;i<arr.length;i++){
+        //         if(num==arr[i]){
+        //             count++;
+        //         }
+        //     }
+        //     return count;
+        // }
+        // console.log(times(2,arr));
+    </script>
+</body>
+</html>

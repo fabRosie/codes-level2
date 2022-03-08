@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class Person{
+        //     constructor(){
+        //         this.locate=()=>console.log('instance');
+        //     }
+        //     locate(){
+        //         console.log('prototype');
+        //     }
+        // }
+
+        // let p=new Person();//实例
+
+        // p.locate();//instance
+        // Person.prototype.locate();
+
+        const symbolKey=Symbol('符号'); 
+
+        class Person{
+            str(){
+                console.log('invoked str')
+            }
+            [symbolKey](){
+                console.log('invoked 符号')
+            }
+            ['whatever'+'key'](){
+                console.log('计算的值')
+            }
+        }
+        let p = new Person;
+        console.log(Person);
+    </script>
+</body>
+</html>

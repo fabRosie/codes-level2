@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>余额数字滚动效果</title>
+  <style>
+    .wrapper {
+      display: flex;
+    }
+
+    #digit-scroll {
+      display: flex;
+      justify-content: center;
+      width: 60px;
+      color: #f50;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">当前余额为<div id="digit-scroll"></div>元</div>
+  <script>
+    class DigitScroll {
+      constructor(options) {
+        //获取容器的DOM，没有则抛出错误
+        this.container = document.querySelector(options.container);
+        if (!this.container) {
+          throw Error("no container");
+        }
+        this.container.style.overflow = "hidden";
+        this.container.style.display = 'block'
+        this.container.style.display = "flex";
+        //可视容器高度 也是滚动间隔距离,容器要设置高度，否则默认30px
+        this.rollHeight = parseInt(getComputedStyle(this.container).height) || 30;
+        this.container.style.height = this.rollHeight + "px";
+        this.numberArr=[];//// 存储滚动的数字
+      }
+      roll(num) {
+        // 将传入的要滚动的数字拆分后初始化每一位数字的容器
+        this.initDigitEle(num);
+        const numEles = this.container.querySelectorAll(".single-num");
+        // 遍历生成每一位数字的滚动队列，如滚动到7，则生成内容为0，1，2，3，4，5，6，7的7个div，用于滚动动画
+        [...numEles].forEach((numEle, index) => {
+          const curNum = 0;
+          let targetNum = Number(this.numberArr[index]);
+          if (curNum >= targetNum) {
+            targetNum = targetNum + 10;
+          }
+          let cirNum = curNum;
+          // 文档碎片，拼凑好后一次性插入节点中
+          const fragment = document.createDocumentFragment();
+          // 生成从0到目标数字对应的div
+          while (targetNum >= cirNum) {
+            const ele = document.createElement("div");
+            ele.innerHTML = cirNum % 10;
+            cirNum++;
+            fragment.appendChild(ele);
+          }
+          numEle.innerHTML = "";
+          numEle.appendChild(fragment);
+          //重置位置
+          numEle.style.cssText +=
+            "-webkit-transition-duration:0s;-webkit-transform:translateY(0)";
+          setTimeout(() => {
+            numEle.style.cssText += `-webkit-transition-duration:1s;-webkit-transform:translateY(${-(targetNum - curNum) * this.rollHeight
+              }px);`;
+          }, 50);
+        });
+      }
+      // 初始化容器
+      initDigitEle(num) {
+        // 数字拆分位数
+        const numArr = num.toString().split("");
+        // 文档碎片，拼凑好后一次性插入节点中
+        const fragment = document.createDocumentFragment();//fragment特点：
+        numArr.forEach((item) => {
+          const el = document.createElement("div");
+          // 数字是要滚动的，非数字如.是不滚动的
+          if (/[0-9]/.test(item)) {
+            el.className = "single-num";
+            el.style.height = this.rollHeight + "px";
+            el.style.lineHeight = this.rollHeight + "px";
+          } else {
+            el.innerHTML = item;
+            el.className = "no-move";
+            el.style.verticalAlign = "bottom";
+          }
+          // el.style.float='left';
+          fragment.appendChild(el);
+        });
+        this.container.innerHTML = "";
+        this.container.appendChild(fragment);
+        // 存储滚动的数字
+        this.numberArr = numArr.filter((item) => /[0-9]/.test(item));
+      }
+    }
+    const digitInstance = new DigitScroll({ container: "#digit-scroll" });
+    digitInstance.roll(8.8);
+    setTimeout(() => {
+      digitInstance.roll(78.48);
+    }, 5000);
+
+    /**
+* 实现数字滚动的效果的类
+*/
+    
+  </script>
+</body>
+
+</html>

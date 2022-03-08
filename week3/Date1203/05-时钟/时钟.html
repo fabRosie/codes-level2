@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid gray;
+            margin: auto;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .hour {
+            height: 150px;
+            width: 10px;
+            background-color: blueviolet;
+            opacity: 50%;
+            position: absolute;
+            left: 245px;
+            top: 100px;
+            transform-origin: center bottom;
+        }
+
+        .minute {
+            height: 200px;
+            width: 10px;
+            background-color: blue;
+            opacity: 50%;
+            position: absolute;
+            left: 245px;
+            top: 50px;
+            transform-origin: center bottom;
+        }
+
+        .second {
+            height: 230px;
+            width: 6px;
+            background-color: black;
+            opacity: 50%;
+            position: absolute;
+            left: 247px;
+            top: 20px;
+            transform-origin: center bottom;
+            /* transform:rotate(30deg); */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML代码结构 -->
+    <div class="box">
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+    <script>
+        /*
+        思路：根据目前的时分秒得出 对应指针要旋转的角度
+            小时：12个小时，转360deg，一个小时30deg
+            分钟：60分钟一圈， 一分钟6度
+            秒：  60次一圈，一秒6度
+            如果需要时针实时。那么可以给时针添加角度,角度为 每过一分钟，就添加0.5deg
+        */
+        //当前时分秒,输出看效果
+        const hourBox=document.querySelector('.hour');
+        const minuteBox=document.querySelector('.minute');
+        const secondBox=document.querySelector('.second');
+        setInterval(function () {
+            //当前时间
+            let hours = new Date().getHours();
+            let minutes = new Date().getMinutes();
+            let seconds = new Date().getSeconds();
+            //是上午还是下午
+            hours>=12?hours-=12: hours;
+            hourBox.style.transform=`rotate(${hours*30}deg)`;
+            minuteBox.style.transform=`rotate(${minutes*6}deg)`;
+            secondBox.style.transform=`rotate(${seconds*6}deg)`;
+            console.log(hours, minutes, seconds);
+        },1000)
+        
+
+    </script>
+</body>
+
+</html>

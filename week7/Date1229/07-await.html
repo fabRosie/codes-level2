@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await</title>
+</head>
+<body>
+    <script>
+        //等待会抛出错误的同步操作，会返回拒绝的期约
+        async function foo(){
+            console.log(1);
+            await(()=>{throw 3;})();
+        }
+
+        foo().catch(console.log);
+        console.log(2);
+
+        //对拒绝的期约使用await会释放错误值
+        async function bar(){
+            console.log(1);
+            return await Promise.resolve(3);
+            console.log(4);
+        }
+        bar().then(console.log);
+        console.log(2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height:200px;
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        div.style.backgroundColor="green";
+        div.style.borderRadius="50%";
+        div.style.width="300px";
+        div.style.height="300px";//嵌入样式，优先级最高
+
+        //获取样式
+        var style=getComputedStyle(div,null);
+        console.log(style.width,style.height,style.backgroundColor);
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    日期(YYYY-MM-DD)：<input type="text" class="inputDay">
+    <button>确认</button>
+    <script>
+        //确认
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+        button.onclick = function () {
+            //输入的日期字符串{xxxx年xx月xx日xx:xx:xx}
+            const inputDate = input.value;
+            console.log(new Date(inputDate));
+            // const inputDate="Sat Nov 26 2021 00:00:00";
+            const someMilliSeconds = new Date(inputDate).getTime();//输入的毫秒值
+            const nowMilliSeconds = new Date().getTime();//现在的毫秒值
+            const subMilliSeconds = nowMilliSeconds - someMilliSeconds;
+            //换算成几天几时几分几秒
+            const day = parseInt(subMilliSeconds / 86400000);
+            const hours = parseInt((subMilliSeconds - day * 86400000) / 3600000);
+            const minutes = parseInt((subMilliSeconds - day * 86400000 - hours * 3600000) / 60000);
+            const seconds = parseInt((subMilliSeconds - day * 86400000 - hours * 3600000 - minutes * 60000) / 1000);
+            const date = {
+                day,
+                hours,
+                minutes,
+                seconds,
+            }
+            console.log(date);
+        }
+    </script>
+</body>
+
+</html>

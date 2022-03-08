@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function SuperType() {
+            this.property=true;
+        }
+        SuperType.prototype.getSuperValue=function(){
+            return this.property;
+        }
+
+        function SubType(){
+            this.subproperty=false;
+        }
+
+        SubType.prototype.getSubValue=function(){
+            return this.subproperty;
+        };
+        
+        SubType.prototype.getSuperValue=function(){
+            return false;
+        }
+        SubType.prototype=new SuperType();
+
+        let instance=new SubType();
+        console.log(instance.getSuperValue());
+        console.log(SubType.prototype.getSuperValue)
+        console.log(instance);
+        //instance的原型是Subtype的原型，SubType的原型是SuperType，SuperType上有一个getSuperValue方法
+        console.log(instance.prototype);//undefined 底层
+        console.log(Object.prototype.__proto__)//null 顶层
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 用户登录
+
+        //用二维数组来保存用户信息
+        var users = [
+            ['admin', 'ad123'],
+            ['qiang', 'q123'],
+            ['deng', 'd123'],
+            ['zhangsan', 'z123']
+        ];
+        var name=prompt('请输入用户名');
+        var pass=prompt('请输入密码');
+        for(i=0;i<users.length;i++){
+                if(name==users[i][0] && pass==users[i][1]){
+                    console.log(name,pass);
+                    break;
+                }else if(i==users.length-1){
+                    console.log('用户名或密码错误');
+                }
+        }
+
+    //   //进行登录判断
+    //   var userinput = prompt('请输入用户名');
+    //   var passinput = prompt('请输入密码');
+    // //   判断:依次和数组中的用户名进行对比->获取数组中的每个数据，并进行判断
+    //   for(var i=0;i<users.length;i++){
+    //       if(users[i][0]==userinput &&users[i][1]==passinput){
+    //           alert('登录成功');
+    //           //成功后不需要继续遍历
+    //           break;
+    //       }else{
+    //           //当遍历到最后一个仍没对比上时，说明用户名或密码错误
+    //           if(i==users.length-1){
+    //               alert('用户名或密码错误');
+    //           }
+    //       }
+    //   }
+    </script>
+</body>
+
+</html>

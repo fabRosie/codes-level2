@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num=Number(prompt('请输入1个六位数'));
+        if(num<=999999 && num>=100000){
+            var ge=num%10;
+            var shi=(num%100-ge)/10;
+            var bai=(num%1000-ge-shi*10)/100;
+            var qian=(num%10000-ge-shi*10-bai*100)/1000;
+            var wan=(num%100000-ge-shi*10-bai*100-qian*1000)/10000;
+            var shiwan=parseInt(num/100000);
+            document.write(`${num}的个位数是${ge}<br>`);
+            document.write(`${num}的十位数是${shi}<br>`);
+            document.write(`${num}的百位数是${bai}<br>`);
+            document.write(`${num}的千位数是${qian}<br>`);
+            document.write(`${num}的万位数是${wan}<br>`);
+            document.write(`${num}的十万位数是${shiwan}<br>`);
+        }else{
+            alert('叫你输入六位数听不懂吗？');
+        }
+        
+    // </script>
+</body>
+</html>

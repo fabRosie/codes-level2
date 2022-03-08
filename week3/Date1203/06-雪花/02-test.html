@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>罗茜的雪花</title>
+    <style>
+        body {
+            background-image: url("img/snow-night.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        body,
+        html {
+            height: 100%;
+        }
+
+        body img {
+            position: fixed;
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="addSnow()">新增</button>
+    <button onclick="start()">开始</button>
+    <button onclick="pause()">暂停</button>
+    <button onclick="delAll()">删除</button>
+    <div id="snowUp"></div>
+    <!-- 音乐 -->
+    <audio src="圣诞.wav" id="music"></audio>
+    <script>
+        function addSnow() {
+            const snow = document.createElement('img');
+            snow.setAttribute('src', "img/snow-white.png");
+            //修改样式  高：940  宽度：1600
+            snow.style.top = parseInt(940 * Math.random()) + "px";
+            snow.style.left = parseInt(1600 * Math.random()) + "px";
+            document.body.appendChild(snow);
+        }
+        function start() {
+            let snows = document.querySelectorAll('img');
+            snows.forEach(function (item) {
+                let snowTop=item.style.top.substr(0,item.style.top.length-2);
+                console.log(snowTop);
+            })
+        }
+    </script>
+</body>
+
+</html>

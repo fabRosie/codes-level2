@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function object(o){
+            function F(){};
+            F.prototype=o;
+            return new F();
+        }
+        
+        function inheritPrototype(subType,superType){
+            let prototype=object(superType.prototype);//创建名为prototype的对象,是父类superType的原型副本
+            prototype.constructor=subType;//解决由于重写原型导致默认constructor丢失的问题
+            subType.prototype=prototype;
+        }
+
+        function SuperType(name){
+            this.name=name;
+            this.colors=["red","blue","green"];
+        }
+        SuperType.prototype.sayName=function(){
+            console.log(this.name);
+        };
+        function SubType(name,age){
+            SuperType.call(this,name);//传参数
+            this.age=age;//自己的属性
+        }
+        SubType.prototype=new SuperType();//用inheritPrototype函数替代这一步
+        inheritPrototype(SubType,SuperType);//相当于用object方法将SuperType的原型浅继承给subType    
+        // console.log(SubType.prototype);
+        // SubType.prototype.constructor=SubType;//因为重写了prototype
+        // console.log(SubType.prototype);
+        SubType.prototype.sayAge=function(){
+            console.log(this.age);
+        };
+        let a =new SubType();
+        a.colors.push('black');
+        // console.log(a.colors)
+        // const b=new SuperType();
+        console.log(a);
+        // console.log(b);
+        // console.log(SuperType.prototype);
+        console.log(SubType.prototype);//原型上没有name和colors
+        
+    </script>
+</body>
+</html>

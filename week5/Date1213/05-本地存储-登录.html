@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗茜的登录</title>
+</head>
+<body>
+    用户名：<input type="text" class="userName"><br>
+    密码：<input type="text" class="userPass"><br>
+    <input type="button" value="登录" class="login"><br>
+    没有账号？立即<a href="06-本地存储-注册.html">注册</a>
+    <script>
+        const login=document.querySelector('.login');
+        login.addEventListener('click',function(){
+            const userName=document.querySelector('.userName').value;
+            const userPass=document.querySelector('.userPass').value;
+            let name=localStorage.getItem('userName');
+            let pass=localStorage.getItem('userPass');
+            name=name.split(',');
+            pass=pass.split(',');
+            console.log(name,pass)
+            const index=name.indexOf(userName);
+            console.log(index);
+            if(pass[index]===userPass){
+                alert('登录成功')
+            }else{
+                alert('登录失败')
+            }
+        })
+    </script>
+</body>
+</html>

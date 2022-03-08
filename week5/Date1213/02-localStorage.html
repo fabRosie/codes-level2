@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localstorage</title>
+</head>
+<body>
+    <input type="text"> <button class="save">保存</button>
+    <button class="output">输出数据</button>
+    <button class="del">删除数据</button>
+    <script>
+        const input=document.querySelector('input');
+        const save=document.querySelector('.save');
+        const output=document.querySelector('.output');
+        const del=document.querySelector('.del');
+        save.addEventListener('click',function(){
+            localStorage.setItem('text',input.value);
+        })
+        output.addEventListener('click',function(){
+            console.log(localStorage.getItem('text'));
+        })
+        del.addEventListener('click',function(){
+            localStorage.removeItem('text');
+        })
+    </script>
+</body>
+</html>

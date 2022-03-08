@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粒子动画</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas class="dotCanvas"></canvas>
+    <script>
+        let mouseX;
+        let mouseY;
+        document.body.addEventListener("mousemove", function () {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+        })
+        //随机点属性
+        let dotCount = 100;//圆点个数
+        let dots = [];//随机点数组
+        //画布
+        let canvas = document.querySelector(".dotCanvas");
+        canvas.height = innerHeight;
+        canvas.width = innerWidth;
+        //画笔
+        let ctx = canvas.getContext('2d');
+        //绘制N个圆点
+        for (i = 0; i <= dotCount; i++) {
+            createOneDot();
+        }
+        setInterval(function () {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            dots.forEach(function (dot) {
+                moveDot(dot);
+                drawDot(dot);
+                drawLine(dot);
+                //拿到鼠标附近的圆点
+                //将附近圆点之间连线
+                //两点连线需要满足的条件
+                //两点都在鼠标附近某个范围内
+                //两点间的距离在某个范围内
+
+            })
+
+        }, 16.7);
+        //绘制一个圆点
+        function createOneDot() {
+            let random_x = canvas.width * Math.random();
+            let random_y = canvas.height * Math.random();
+            const speed = [-1, 1]
+            let speed_X = speed[parseInt(Math.random() * 2)];
+            let speed_Y = speed[parseInt(Math.random() * 2)];
+            const random_R = 5 + parseInt(Math.random() * 2);
+            const random_Color = `rgb(${parseInt(180 + Math.random() * 76)},${parseInt(180 + Math.random() * 76)},${parseInt(180 + Math.random() * 76)})`
+            let dot = {
+                x: random_x,
+                y: random_y,
+                r: random_R,
+                speedX: speed_X,
+                speedY: speed_Y,
+                color: random_Color
+            }
+            dots.push(dot);
+        }
+        //圆点移动
+        function moveDot(dot) {
+            if (dot.x < dot.r || dot.x > canvas.width - dot.r) {
+                dot.speedX *= -1;
+            }else if(dot.y > canvas.height - dot.r|| dot.y < dot.r ){
+                dot.speedY *= -1;
+            }
+            dot.x += dot.speedX;
+            dot.y += dot.speedY;
+
+        }
+        //绘制圆点
+        function drawDot(dot) {
+            ctx.beginPath();
+            ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
+            ctx.fillStyle = dot.color;
+            ctx.fill();
+            ctx.stroke;
+        }
+        //两点间的距离
+        function getDistance(dot1, dot2) {
+            let s = Math.sqrt((dot1.x - dot2.x) * (dot1.x - dot2.x) + (dot1.y - dot2.y) * (dot1.y - dot2.y));
+            return s;
+        }
+        //判断是否在鼠标附近
+        function isAroundMouse(dot1, dot2) {
+            let mouse = {
+                x: mouseX,
+                y: mouseY
+            }
+            if (getDistance(dot1, mouse) <= 200 && getDistance(dot2, mouse) <= 200) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        //画线
+        function drawLine(dot) {
+            dots.forEach(function (dot2) {
+                if (getDistance(dot, dot2) <= 180 && isAroundMouse(dot,dot2)) {
+                    ctx.beginPath();
+                    ctx.moveTo(dot.x, dot.y);
+                    ctx.lineTo(dot2.x, dot2.y);
+                    ctx.strokeStyle = dot.color;
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

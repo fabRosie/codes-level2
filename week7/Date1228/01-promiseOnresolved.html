@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const p1=new Promise(()=>{});
+        // let p2=p1.then();
+        // setTimeout(console.log,0,p2);
+        // setTimeout(console.log,0,p1);
+        const p1=Promise.resolve('foo');
+        const p2=p1.then();
+        // setTimeout(console.log,0,p2);
+        const p3=p1.then(()=>undefined);
+        const p4=p1.then(()=>{});
+        const p5=p1.then(()=>Promise.resolve());
+        setTimeout(console.log,0,p3);
+        setTimeout(console.log,0,p4);
+        setTimeout(console.log,0,p5);
+        const p6=p1.then(()=>Promise.resolve('bar'))
+        setTimeout(console.log,0,p6);
+        const p7=p1.then(()=>'bar')
+        setTimeout(console.log,0,p7);
+        const p8=p1.then(()=>new Promise(()=>{}));
+        const p9=p1.then(()=>Promise.reject());
+        setTimeout(console.log,0,p8);
+        setTimeout(console.log,0,p9);
+        const p10=p1.then(()=>{throw 'baz'});
+        setTimeout(console.log,0,p10);
+        const p11=p1.then(()=>Error('qux'));
+        setTimeout(console.log,0,p11);
+    </script>
+</body>
+</html>

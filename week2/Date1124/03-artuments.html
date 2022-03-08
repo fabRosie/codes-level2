@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //需求 ： 定义一个函数，传入两个字符串，返回拼接后的字符串
+        function addStr(){
+            let str="";
+            for(i=0;i<arguments.length;i++){
+                str+=arguments[i];
+            }
+            return str;
+        }
+        console.log(addStr("luoxi","yyj","wiski"))
+        
+        //模拟push
+        var arr=[];
+        function pushArr(arry){
+            for(i=1;i<arguments.length;i++){
+                arr[arry.length]=arguments[i];
+            }
+            return arry;
+        }
+        pushArr(arr,1,2,3,4);
+        console.log(arr);
+
+        //模拟pop
+        function pop(array){
+            for(i=1;i<arguments.length;i++){
+                while(array.indexOf(arguments[i])!=-1){
+                    array.splice(array.indexOf(arguments[i]),1);
+                }
+            }
+            return array;
+        }
+        console.log(pop(arr,1,2));
+    </script>
+</body>
+</html>

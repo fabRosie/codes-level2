@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(){
+                this.locate1=()=>console.log('p instance',this);
+            }
+            locate2(){
+                console.log('Person.prototype',this);
+            }
+
+            static locate3(){
+                console.log('class Person',this)
+                this.what="rosie";
+            }
+        }
+
+        let p=new Person();
+        p.locate1();
+        Person.prototype.locate2();
+        Person.locate3();
+        // console.log(p);
+        // console.log(Person);
+        // console.log(Person.prototype);
+    </script>
+</body>
+</html>
